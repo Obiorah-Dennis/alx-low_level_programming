@@ -1,1 +1,1 @@
-0x00. C - Hello, World
+This is readme for alx-low level programming
