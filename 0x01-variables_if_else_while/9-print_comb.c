@@ -6,13 +6,13 @@
  */
 int main(void)
 {
-int i, j;
-for (i = 0; i <= 9; i++)
+int I, J;
+for (I = 0; I <= 9; I++)
 {
-for (j = i + 1; j <= 9; j++)
+for (J = I + 1; J <= 9; J++)
 {
-putchar(i + '0');
-putchar(j + '0');
+putchar(I + '0');
+putchar(J + '0');
 }
 }
 putchar('\n');
