@@ -9,7 +9,7 @@
 int main(void)
 {
 srand(time(NULL));
-int n = rand(),
+int n = rand();
 int last_digit = n % 10;
 printf("Last digit of %d is ", n);
 if (last_digit > 5)
