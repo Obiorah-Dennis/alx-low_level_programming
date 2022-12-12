@@ -6,16 +6,25 @@
 
 int main(void)
 {
-(int i = 0; i < 10; i++)
+int c;
+int d = 0;
+while (d < 10)
 {
- (int j = i + 1; j < 10; j++)
+	c = 0;
+if (d != c && d < c)
 {
-putchar(i + '0');
+putchar('0' + d);
+putchar('0' + c);
+if (c + d != 17)
+{
 putchar(',');
 putchar(' ');
-putchar(j + '0');
+}
+}
+c++;
+}
+d++;
+}
 putchar('\n');
-}
-}
 return (0);
 }
