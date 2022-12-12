@@ -1,38 +1,21 @@
 #include <stdio.h>
 /**
- * main - program that prints all possible different combinations
+ * main - Printing combination of numbers
+ *Return: Always return 0 (Success)
  *
- * Return: Always 0
  */
 int main(void)
 {
-int i;
-int n;
-int j;
-for (i = 48; i < 58; i++)
+int num;
+for (num = 0; num <= 9; num++)
 {
-for (n = 48; n < 58; n++)
+putchar(num + '0');
+if (num < 9)
 {
-if (n > i)
-{
-for (j = 48; j < 58; j++)
-{
-if (j > n)
-{
-putchar(i);
-putchar(n);
-putchar(j);
-if (i == 55 && n == 56 && j == 57)
-{
-break;
-}
 putchar(',');
 putchar(' ');
 }
 }
-}
-}
-}
-putchar ('\n');
+putchar('\n');
 return (0);
 }

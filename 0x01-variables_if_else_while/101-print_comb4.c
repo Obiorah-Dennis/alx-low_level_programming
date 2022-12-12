@@ -1,38 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
 /**
- * main - Entry point
- * Return: Always 0 (success)
+ * main - program that prints all possible different combinations
+ *
+ * Return: Always 0
  */
 int main(void)
 {
-	int c;
-	int d;
-	int e = 0;
-	{
-	while (e < 10)
-	{
-		d = 0;
-	while (d < 10)
-	{
-		if (c != d && d != e && e < d  && d < c)
-		{
-			putchar('0' + e);
-			putchar('0' + d);
-			putchar('0' + c);
-			if (c + d + e != 9 + 8 + 7)
-			{
-				putchar(',');
-					putchar(' ');
-			}
-		}
-		c++;
-	}
-	d++;
-	}
-	e++;
-	}
-	putchar('\n');
-	return (0);
+int i;
+int n;
+int j;
+for (i = 48; i < 58; i++)
+{
+for (n = 48; n < 58; n++)
+{
+if (n > i)
+{
+for (j = 48; j < 58; j++)
+{
+if (j > n)
+{
+putchar(i);
+putchar(n);
+putchar(j);
+if (i == 55 && n == 56 && j == 57)
+{
+break;
 }
-
+putchar(',');
+putchar(' ');
+}
+}
+}
+}
+}
+putchar ('\n');
+return (0);
+}
