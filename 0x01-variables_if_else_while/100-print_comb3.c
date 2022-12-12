@@ -6,7 +6,7 @@
 int main(void)
 {
 int numbers[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-(int i = 0; i < 10; i++)
+((int )i = 0; i < 10; i++)
 {
 int d1 = numbers[i];
 for (int j = i + 1; j < 10; j++)
@@ -18,6 +18,6 @@ putchar(' ');
 putchar(d2 + '0');
 putchar('\n');
 }
-}
+};
 return (0);
 }
