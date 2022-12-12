@@ -8,7 +8,6 @@
  */
 int main(void)
 {
-int n;
 srand(time(NULL));
 int n = rand(),
 int last_digit = n % 10;
