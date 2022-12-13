@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- *_isalpha - checks for aplhabets
+ *_isalpha - checks for alphabets
  * @c: character to be checked
  *
- * return: 1 if character is a letter, 0 otherwise
+ * Return: 1 if character is a letter, 0 otherwise
  */
 int _isalpha(int c)
 {
