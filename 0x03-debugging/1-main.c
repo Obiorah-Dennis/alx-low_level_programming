@@ -14,7 +14,7 @@ int main(void)
 	/*
 	*while (1 < 10)
  	*{
- 	*putchar(i);
+ 	*	putchar(i);
 	*}
 	*/
 	
