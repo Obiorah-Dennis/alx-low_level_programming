@@ -6,14 +6,30 @@
  */
 void print_chessboard(char (*a)[8])
 {
-	int i;
-	int j;
+	char chessboard[8][8];
 
-	for (i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++)
 	{
-		for (j = 0; j < 8; j++)
-			_putchar(a[i][j]);
-		_putchar('\n');
+		for (int j = 0; j < 8; j++)
+		{
+			if ((i + j) % 2 == 0)
+			{
+				chessboard[i][j] = 'B';
+			}
+			else
+			{
+				chessboard[i][j] = 'W';
+			}
+		}
 	}
-	return (0);
+	/* Print the chessboard */
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			printf("%c ", chessboard[i][j]);
+		}
+		printf("\n");
+	}
 }
+
