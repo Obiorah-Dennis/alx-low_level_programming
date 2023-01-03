@@ -1,6 +1,5 @@
 #include "main.h"
 /**
- *
  * print_chessboard - print in the terminal the chessboard
  * @a: The character to print
  *
