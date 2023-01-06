@@ -3,11 +3,8 @@
 void _puts(char *str)
 	/**
 	 * main - Entry point
-	 *
+	 *@str: string
 	 * Return: Always 0 (Success)
-	 */
-	/**
-	 *  _puts - what puts does
 	 */
 	int main(void)
 {
