@@ -1,0 +1,25 @@
+CC = gcc
+SRC = main.c helper.c module.c
+NAME = school
+
+all: $(NAME)
+
+$(NAME): $(SRC:%.c=%.o)
+	$(CC) -o $@ $^
+
+%.o: %.c m.h
+	$(CC) -c $< -o $@
+
+clean:
+	@$(RM) $(NAME) *~ .*~ $(SRC:%.c=%.o) $(SRC:%.c=%.d)
+
+oclean:
+	@$(RM) $(SRC:%.c=%.o) $(SRC:%.c=%.d)
+
+fclean: clean
+	@$(RM) $(SRC:%.c=%.o) $(SRC:%.c=%.d)
+
+re: fclean all
+
+.PHONY: all clean oclean fclean re
+
