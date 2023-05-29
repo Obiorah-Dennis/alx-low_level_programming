@@ -1,17 +1,7 @@
 CC = gcc
-SRC = main.c helper.c module.c
-OBJ = $(SRC:.c=.o)
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o) 
 NAME = school
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) -o $@ $^
-
-%.o: %.c
-	$(CC) -c $<
-
-.PHONY: clean
-clean:
-	rm -f $(OBJ) $(NAME)
-
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)

@@ -1,51 +1,26 @@
 #!/usr/bin/python3
+"""Defines an island perimeter measuring function."""
+
 
 def island_perimeter(grid):
-    """
-    Calculates the perimeter of the island described in the grid.
-
+    """Return the perimiter of an island.
+    The grid represents water by 0 and land by 1.
     Args:
-        grid (list): A list of lists representing the grid.
-
+        grid (list): A list of list of integers representing an island.
     Returns:
-        int: The perimeter of the island.
-
-    Raises:
-        ValueError: If the grid is not rectangular or exceeds the size limit.
-
+        The perimeter of the island defined in grid.
     """
+    width = len(grid[0])
+    height = len(grid)
+    edges = 0
+    size = 0
 
-    if not grid:
-        return 0
-
-    # Check if the grid is rectangular and within size limits
-    row_len = len(grid[0])
-    for row in grid:
-        if len(row) != row_len or len(row) > 100:
-            raise ValueError("Invalid grid")
-
-    perimeter = 0
-    rows = len(grid)
-    cols = len(grid[0])
-
-    for i in range(rows):
-        for j in range(cols):
+    for i in range(height):
+        for j in range(width):
             if grid[i][j] == 1:
-                # Check left
-                if j == 0 or grid[i][j - 1] == 0:
-                    perimeter += 1
-
-                # Check right
-                if j == cols - 1 or grid[i][j + 1] == 0:
-                    perimeter += 1
-
-                # Check top
-                if i == 0 or grid[i - 1][j] == 0:
-                    perimeter += 1
-
-                # Check bottom
-                if i == rows - 1 or grid[i + 1][j] == 0:
-                    perimeter += 1
-
-    return perimeter
-
+                size += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    edges += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    edges += 1
+    return size * 4 - edges * 2
