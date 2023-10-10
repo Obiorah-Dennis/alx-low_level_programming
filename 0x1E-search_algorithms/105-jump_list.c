@@ -2,50 +2,62 @@
 #include <math.h>
 
 /**
- * jump_list - searches for a value in an array of
- * integers using the Jump search algorithm
- *
- * @list: input list
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * search - goes through the linked list from one point to other
+ * in order to get the value
+ * @prev: prev pointer
+ * @actual: actual pointer
+ * @value: value to search
+ * Return: Node where the value is or NULL if the value couldn't be find
+ */
+listint_t *search(listint_t *prev, listint_t *actual, int value)
+{
+	while (prev && prev->index <= actual->index)
+	{
+		printf("Value checked at index [%lu] = [%i]\n", prev->index, prev->n);
+		if (prev->n == value)
+			return (prev);
+		prev = prev->next;
+	}
+	return (NULL);
+}
+/**
+ * jump_list - jump search algorithm with linked list
+ * @list: list to search the value
+ * @size: size of linked list
+ * @value: value to search
+ * Return: Node where the value is or NULL if the value couldn't be find
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-size_t index, k, m;
-listint_t *prev;
+	int paso, count = 0;
+	listint_t *actual, *prev;
+	size_t pre_i, act_i;
 
-if (list == NULL || size == 0)
-return (NULL);
-
-m = (size_t)sqrt((double)size);
-index = 0;
-k = 0;
-
-do {
-prev = list;
-k++;
-index = k * m;
-
-while (list->next && list->index < index)
-list = list->next;
-
-if (list->next == NULL && index != list->index)
-index = list->index;
-
-printf("Value checked at index [%d] = [%d]\n", (int)index, list->n);
-
-} while (index < size && list->next && list->n < value);
-
-printf("Value found between indexes ");
-printf("[%d] and [%d]\n", (int)prev->index, (int)list->index);
-
-for (; prev && prev->index <= list->index; prev = prev->next)
-{
-printf("Value checked at index [%d] = [%d]\n", (int)prev->index, prev->n);
-if (prev->n == value)
-return (prev);
-}
-
-return (NULL);
+	if (list == NULL)
+		return (NULL);
+	paso = sqrt((int)size);
+	actual = prev = list;
+	while (actual->next)
+	{
+		prev = actual;
+		pre_i = prev->index;
+		act_i = actual->index;
+		while (count != paso && actual->next)
+		{
+			actual = actual->next;
+			count++;
+		}
+		count = 0;
+		if (actual)
+		{
+			act_i = actual->index;
+			printf("Value checked at index [%lu] = [%i]\n", act_i, actual->n);
+			if (prev->n > value && prev->index == 0)
+				return (NULL);
+			else if (actual->n >= value)
+				break;
+		}
+	}
+	printf("Value found between indexes [%lu] and [%lu]\n", pre_i, act_i);
+	return (search(prev, actual, value));
 }
